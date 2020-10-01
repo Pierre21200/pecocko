@@ -3,6 +3,7 @@ const express = require("express"); // qu'est ce que permet vraiment express et 
 const bodyParser = require("body-parser"); // pareil
 const mongoose = require("mongoose"); // pareil
 const path = require("path"); // pareil
+const helmet = require("helmet");
 
 // Création de l'application express
 const app = express();
@@ -11,13 +12,22 @@ const app = express();
 const sauceRoutes = require("./routes/sauces");
 const userRoutes = require("./routes/user");
 
+// Connection a la Base de Donnée MongoDB
+//& masquage des données grâce à DOTENV package.
+require("dotenv").config();
+const ID = process.env.ID;
+const MDP = process.env.MDP;
+
 mongoose
   .connect(
-    "mongodb+srv://pipo21:Titicaca21200@cluster0.soosm.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    `mongodb+srv://${ID}:${MDP}@cluster0.soosm.mongodb.net/<dbname>?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
+
+// Utilisation du middleware helmet pour sécurité
+app.use(helmet());
 
 // Header pour contourner les erreurs de CORS
 app.use((req, res, next) => {
