@@ -2,6 +2,5 @@ Bcrypt
 DOTENV
 TOKEN
 HELMET 
-HTTPS 
-Mongo Mask
+mangoose
 
