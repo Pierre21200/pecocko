@@ -1,8 +1,9 @@
 // Ajout des packages suplémentaires
-const express = require("express"); // qu'est ce que permet vraiment express et comment ça serait sans express ?
-const bodyParser = require("body-parser"); // pareil
-const mongoose = require("mongoose"); // pareil
-const path = require("path"); // pareil
+const express = require("express"); // framework qui facilite codage du serveur
+const bodyParser = require("body-parser"); // parse nos données pour les rendre exploitables
+const mongoose = require("mongoose"); // package qui facilite interactions avec base de données MongoDB (model, email unique)
+const path = require("path"); // permet de gerer les images en static
+
 const helmet = require("helmet");
 
 // Création de l'application express

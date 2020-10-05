@@ -10,7 +10,7 @@ const auth = require("../middleware/auth");
 //Import du middleware multer pour la gestion des images
 const multer = require("../middleware/multer-config");
 
-// Toutes les toutes des API
+// Toutes les routes des API
 router.post("/", auth, multer, sauceCtrl.createSauce);
 router.put("/:id", auth, multer, sauceCtrl.modifySauce);
 router.delete("/:id", auth, sauceCtrl.deleteSauce);
