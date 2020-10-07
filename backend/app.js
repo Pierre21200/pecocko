@@ -21,7 +21,8 @@ const MDP = process.env.MDP;
 
 mongoose
   .connect(
-    `mongodb+srv://${ID}:${MDP}@cluster0.soosm.mongodb.net/<dbname>?retryWrites=true&w=majority`,
+    `mongodb+srv://pipo21:Titicaca21200@cluster0.soosm.mongodb.net/<dbname>?retryWrites=true&w=majority`,
+
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
